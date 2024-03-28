@@ -1,95 +1,69 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Button, Navbar } from "@/components";
+import { Container, VStack, styled } from "../../styled-system/jsx";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <>
+      <Navbar />
+      <styled.header mt="80px" display={{ base: "none", md: "flex" }}>
+        <Container maxW="6xl">
+          <VStack gap="7" mt="80px">
+            <styled.h1
+              textStyle="heading"
+              fontSize="8xl"
+              fontWeight="500"
+              lineHeight="100%"
+              textAlign="center"
+            >
+              Your Comprehensive Network Device Management Solution
+            </styled.h1>
+            <styled.h4
+              textStyle="heading"
+              fontSize="2xl"
+              fontWeight="400"
+              lineHeight="150%"
+              textAlign="center"
+              color="grey.500"
+              width="80%"
+              margin="0 auto"
+            >
+              Streamline your network management tasks with Netshot, the
+              powerful and intuitive tool designed to help you.
+            </styled.h4>
+            <Button size="lg" icon="download">
+              Download Netshot
+            </Button>
+          </VStack>
+          <styled.div
+            mt="88px"
+            width="100%"
+            bg="grey.100"
+            borderRadius="2xl"
+            h="700px"
+          ></styled.div>
+        </Container>
+      </styled.header>
+      <styled.main display={{ base: "none", md: "flex" }}>
+        <Container maxW="6xl">
+          <styled.div width="calc(100% * 12 / 7)">
+            <styled.h6>Device Compliance</styled.h6>
+            <styled.h3>
+              Maintaining IT infrastructure compliance involves the following
+              elements
+            </styled.h3>
+            <styled.p>
+              To guarantee IT infrastructure adherence to industry standards,
+              define your preferred software versions and implement a consistent
+              strategy. Deviating devices will be identified and rectified
+              accordingly. Establish hardware End of Sale/Life cycles and
+              initiate replacement plans. Set up policies and procedures that
+              promote configuration best practices or tailor configurations to
+              suit your organization's unique requirements.
+            </styled.p>
+            <Button icon="arrowRight">Get started</Button>
+          </styled.div>
+        </Container>
+      </styled.main>
+    </>
   );
 }
