@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <styled.header mt="80px" display={{ base: "none", md: "flex" }}>
+      <styled.header mt="80px" mb="140px">
         <Container maxW="6xl">
           <VStack gap="7" mt="80px">
             <styled.h1
@@ -43,15 +43,23 @@ export default function Home() {
           ></styled.div>
         </Container>
       </styled.header>
-      <styled.main display={{ base: "none", md: "flex" }}>
+      <styled.main>
         <Container maxW="6xl">
-          <styled.div width="calc(100% * 12 / 7)">
-            <styled.h6>Device Compliance</styled.h6>
-            <styled.h3>
+          <styled.div width="70%">
+            <styled.h6 fontWeight="semibold" color="green.500" mb="3">
+              Device Compliance
+            </styled.h6>
+            <styled.h3
+              fontSize="3xl"
+              fontWeight="semibold"
+              lineHeight="110%"
+              mb="6"
+            >
               Maintaining IT infrastructure compliance involves the following
               elements
             </styled.h3>
-            <styled.p>
+
+            <styled.p mb="6">
               To guarantee IT infrastructure adherence to industry standards,
               define your preferred software versions and implement a consistent
               strategy. Deviating devices will be identified and rectified

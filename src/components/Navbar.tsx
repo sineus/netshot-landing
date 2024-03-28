@@ -8,7 +8,6 @@ import { createPortal } from "react-dom";
 import { Container, HStack, styled } from "../../styled-system/jsx";
 
 const StyledMotionDiv = styled(motion.div);
-const StyledLink = styled(Link);
 const BottomSheetNavLink = styled(Link, {
   base: {
     display: "flex",
@@ -51,6 +50,7 @@ function MenuBottomSheet() {
               left="0"
               right="0"
               bottom="0"
+              zIndex="9999"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -123,6 +123,7 @@ export default function Navbar() {
       borderBottom="1px solid token(colors.grey.50)"
       backdropFilter="blur(20px)"
       bg="rgba(token(colors.white) .8)"
+      zIndex="9998"
     >
       <Container
         width="100%"
