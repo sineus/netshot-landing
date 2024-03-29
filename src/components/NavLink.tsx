@@ -29,5 +29,5 @@ type NavLinkProps = PropsWithChildren<NavLinkVariantProps & LinkProps>;
 export default function NavLink(props: NavLinkProps) {
   const { children, ...other } = props;
 
-  return <Link {...other}>{children}</Link>;
+  return <StyledLink {...other}>{children}</StyledLink>;
 }

@@ -1,9 +1,16 @@
 "use client";
 
 import { Brand, Button, IconButton, NavLink } from "@/components";
+import { links } from "@/constants";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useCallback, useState } from "react";
+import {
+  PropsWithChildren,
+  useCallback,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { createPortal } from "react-dom";
 import { Container, HStack, styled } from "../../styled-system/jsx";
 
@@ -24,6 +31,21 @@ const BottomSheetNavLink = styled(Link, {
   },
 });
 
+function Portal(props: PropsWithChildren<{ targetSelector?: string }>) {
+  const { children, targetSelector } = props;
+  const target = useRef<Element>();
+
+  useLayoutEffect(() => {
+    if (targetSelector) {
+      target.current = document.querySelector(targetSelector) as Element;
+    } else {
+      target.current = document.body;
+    }
+  }, [target, targetSelector]);
+
+  return target.current ? createPortal(children, target) : null;
+}
+
 function MenuBottomSheet() {
   const [open, setOpen] = useState(false);
 
@@ -39,7 +61,7 @@ function MenuBottomSheet() {
         display={{ base: "flex", md: "none" }}
         onClick={toggle}
       />
-      {createPortal(
+      <Portal>
         <AnimatePresence>
           {open && (
             <StyledMotionDiv
@@ -89,23 +111,33 @@ function MenuBottomSheet() {
                 >
                   <styled.nav>
                     <BottomSheetNavLink href="/">Features</BottomSheetNavLink>
-                    <BottomSheetNavLink href="/">
+                    <BottomSheetNavLink
+                      href={links.documentation}
+                      target="_blank"
+                    >
                       Documentation
                     </BottomSheetNavLink>
-                    <BottomSheetNavLink href="/">Blog</BottomSheetNavLink>
-                    <BottomSheetNavLink href="/">Support</BottomSheetNavLink>
+                    <BottomSheetNavLink href={links.blog} target="_blank">
+                      Blog
+                    </BottomSheetNavLink>
+                    <BottomSheetNavLink href={links.support} target="_blank">
+                      Support
+                    </BottomSheetNavLink>
                   </styled.nav>
                   <styled.div display="flex" flexDirection="column" gap="3">
-                    <Button visual="ghost">Source code</Button>
-                    <Button>Download</Button>
+                    <Link href={links.github} passHref target="_blank">
+                      <Button visual="ghost">Source code</Button>
+                    </Link>
+                    <Link href={links.download} passHref target="_blank">
+                      <Button>Download</Button>
+                    </Link>
                   </styled.div>
                 </styled.div>
               </StyledMotionDiv>
             </StyledMotionDiv>
           )}
-        </AnimatePresence>,
-        document.body
-      )}
+        </AnimatePresence>
+      </Portal>
     </>
   );
 }
@@ -138,17 +170,27 @@ export default function Navbar() {
           </Link>
           <HStack gap="2" display={{ base: "none", md: "flex" }}>
             <NavLink href="/">Features</NavLink>
-            <NavLink href="/">Documentation</NavLink>
-            <NavLink href="/">Blog</NavLink>
-            <NavLink href="/">Support</NavLink>
+            <NavLink href={links.documentation} target="_blank">
+              Documentation
+            </NavLink>
+            <NavLink href={links.blog} target="_blank">
+              Blog
+            </NavLink>
+            <NavLink href={links.support} target="_blank">
+              Support
+            </NavLink>
           </HStack>
         </HStack>
 
         <HStack gap="2">
-          <Button visual="ghost" display={{ base: "none", md: "flex" }}>
-            Source code
-          </Button>
-          <Button>Download</Button>
+          <Link href={links.github} passHref target="_blank">
+            <Button visual="ghost" display={{ base: "none", md: "flex" }}>
+              Source code
+            </Button>
+          </Link>
+          <Link href={links.download} passHref target="_blank">
+            <Button>Download</Button>
+          </Link>
           <MenuBottomSheet />
         </HStack>
       </Container>

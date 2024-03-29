@@ -34,6 +34,13 @@ export const StyledButton = styled("button", {
           bg: "green.100",
         },
       },
+      plain: {
+        bg: "transparent",
+        color: "green.1100",
+        "&:hover": {
+          bg: "green.50",
+        },
+      },
     },
     size: {
       sm: {
