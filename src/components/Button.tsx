@@ -1,7 +1,7 @@
+import { button } from "@/theme/recipes";
+import { styled } from "@styled-system/jsx";
+import type { StyledVariantProps } from "@styled-system/types";
 import { PropsWithChildren } from "react";
-import { styled } from "../../styled-system/jsx";
-import { button } from "../../styled-system/recipes";
-import type { StyledVariantProps } from "../../styled-system/types";
 import Icon from "./Icon";
 
 export const StyledButton = styled("button", button);

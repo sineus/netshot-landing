@@ -1,8 +1,6 @@
-import { defineRecipe } from "@pandacss/dev";
+import { cva } from "@styled-system/css";
 
-export const button = defineRecipe({
-  className: "btn",
-  description: "The styles for Button",
+export const button = cva({
   base: {
     display: "flex",
     alignItems: "center",
@@ -14,7 +12,7 @@ export const button = defineRecipe({
     fontWeight: "medium",
     cursor: "pointer",
     transition: "all .2s ease",
-    alignSelf: "start",
+    width: "fit-content",
   },
   variants: {
     visual: {

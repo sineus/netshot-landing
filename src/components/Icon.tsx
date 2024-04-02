@@ -1,7 +1,7 @@
+import { styled } from "@styled-system/jsx";
+import { HTMLStyledProps, StyledComponent } from "@styled-system/types";
 import { createElement } from "react";
 import * as icons from "react-feather";
-import { HTMLStyledProps, StyledComponent } from "../../styled-system/types";
-import { HTMLStyledProps, styled } from "../../styled-system/jsx";
 
 /**
  * @note Permet d'encapsuler les icons provenant de la lib "react-feather"

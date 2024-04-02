@@ -1,6 +1,6 @@
 import { ButtonLink, Icon, Navbar } from "@/components";
 import { links } from "@/constants";
-import { Container, VStack, styled } from "../../styled-system/jsx";
+import { Container, VStack, styled } from "@styled-system/jsx";
 
 export default function Home() {
   return (

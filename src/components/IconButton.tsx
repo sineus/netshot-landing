@@ -1,5 +1,5 @@
-import { styled } from "../../styled-system/jsx";
-import type { StyledVariantProps } from "../../styled-system/types";
+import { styled } from "@styled-system/jsx";
+import type { StyledVariantProps } from "@styled-system/types";
 import Icon from "./Icon";
 
 export const StyledIconButton = styled("button", {
@@ -58,7 +58,7 @@ export const StyledIconButton = styled("button", {
   },
 });
 
-type IconButtonVariantProps = StyledVariantProps<typeof StyledButton>;
+type IconButtonVariantProps = StyledVariantProps<typeof StyledIconButton>;
 
 type IconButtonProps = IconButtonVariantProps & {
   icon: string;

@@ -1,7 +1,7 @@
+import { styled } from "@styled-system/jsx";
+import type { StyledVariantProps } from "@styled-system/types";
 import Link, { type LinkProps } from "next/link";
 import { PropsWithChildren } from "react";
-import { styled } from "../../styled-system/jsx";
-import type { StyledVariantProps } from "../../styled-system/types";
 
 export const StyledLink = styled(Link, {
   base: {

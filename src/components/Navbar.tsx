@@ -2,10 +2,10 @@
 
 import { Brand, ButtonLink, IconButton, NavLink, Portal } from "@/components";
 import { links } from "@/constants";
+import { Container, HStack, styled } from "@styled-system/jsx";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useCallback, useState } from "react";
-import { Container, HStack, styled } from "../../styled-system/jsx";
 
 const StyledMotionDiv = styled(motion.div);
 const BottomSheetNavLink = styled(Link, {
