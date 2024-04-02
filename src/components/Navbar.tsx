@@ -1,17 +1,10 @@
 "use client";
 
-import { Brand, Button, IconButton, NavLink } from "@/components";
+import { Brand, ButtonLink, IconButton, NavLink, Portal } from "@/components";
 import { links } from "@/constants";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import {
-  PropsWithChildren,
-  useCallback,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
-import { createPortal } from "react-dom";
+import { useCallback, useState } from "react";
 import { Container, HStack, styled } from "../../styled-system/jsx";
 
 const StyledMotionDiv = styled(motion.div);
@@ -30,21 +23,6 @@ const BottomSheetNavLink = styled(Link, {
     fontWeight: "medium",
   },
 });
-
-function Portal(props: PropsWithChildren<{ targetSelector?: string }>) {
-  const { children, targetSelector } = props;
-  const target = useRef<Element>();
-
-  useLayoutEffect(() => {
-    if (targetSelector) {
-      target.current = document.querySelector(targetSelector) as Element;
-    } else {
-      target.current = document.body;
-    }
-  }, [target, targetSelector]);
-
-  return target.current ? createPortal(children, target) : null;
-}
 
 function MenuBottomSheet() {
   const [open, setOpen] = useState(false);
@@ -125,12 +103,17 @@ function MenuBottomSheet() {
                     </BottomSheetNavLink>
                   </styled.nav>
                   <styled.div display="flex" flexDirection="column" gap="3">
-                    <Link href={links.github} passHref target="_blank">
-                      <Button visual="ghost">Source code</Button>
-                    </Link>
-                    <Link href={links.download} passHref target="_blank">
-                      <Button>Download</Button>
-                    </Link>
+                    <ButtonLink
+                      visual="ghost"
+                      href={links.github}
+                      target="_blank"
+                    >
+                      Source code
+                    </ButtonLink>
+
+                    <ButtonLink href={links.download} target="_blank">
+                      Download
+                    </ButtonLink>
                   </styled.div>
                 </styled.div>
               </StyledMotionDiv>
@@ -183,14 +166,18 @@ export default function Navbar() {
         </HStack>
 
         <HStack gap="2">
-          <Link href={links.github} passHref target="_blank">
-            <Button visual="ghost" display={{ base: "none", md: "flex" }}>
-              Source code
-            </Button>
-          </Link>
-          <Link href={links.download} passHref target="_blank">
-            <Button>Download</Button>
-          </Link>
+          <ButtonLink
+            visual="ghost"
+            display={{ base: "none", md: "flex" }}
+            href={links.github}
+            target="_blank"
+          >
+            Source code
+          </ButtonLink>
+
+          <ButtonLink href={links.download} target="_blank">
+            Download
+          </ButtonLink>
           <MenuBottomSheet />
         </HStack>
       </Container>

@@ -1,3 +1,4 @@
+import { button } from "@/theme/recipes";
 import { defineConfig } from "@pandacss/dev";
 import { colors, globalCss, textStyles } from "./src/theme";
 
@@ -25,6 +26,9 @@ export default defineConfig({
           heading: { value: "var(--font-sf-pro)" },
         },
         colors,
+      },
+      recipes: {
+        button,
       },
     },
   },

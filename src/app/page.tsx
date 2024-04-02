@@ -1,4 +1,5 @@
-import { Button, Icon, Navbar } from "@/components";
+import { ButtonLink, Icon, Navbar } from "@/components";
+import { links } from "@/constants";
 import { Container, VStack, styled } from "../../styled-system/jsx";
 
 export default function Home() {
@@ -33,9 +34,15 @@ export default function Home() {
               Streamline your network management tasks with Netshot, the
               powerful and intuitive tool designed to help you.
             </styled.h4>
-            <Button size="lg" icon="download">
+
+            <ButtonLink
+              size="lg"
+              icon="download"
+              href={links.download}
+              target="_blank"
+            >
               Download Netshot
-            </Button>
+            </ButtonLink>
           </VStack>
           <styled.div
             mt={{ base: "60px", md: "80px" }}
@@ -71,7 +78,14 @@ export default function Home() {
               promote configuration best practices or tailor configurations to
               suit your organization's unique requirements.
             </styled.p>
-            <Button icon="arrowRight">Get started</Button>
+
+            <ButtonLink
+              icon="arrowRight"
+              href={links.documentation}
+              target="_blank"
+            >
+              Get started
+            </ButtonLink>
           </styled.div>
           <styled.div
             display="flex"
@@ -183,7 +197,13 @@ export default function Home() {
                 and address configuration changes anywhere within their
                 environment.
               </styled.p>
-              <Button icon="arrowRight">Get started</Button>
+              <ButtonLink
+                icon="arrowRight"
+                href={links.documentation}
+                target="_blank"
+              >
+                Get started
+              </ButtonLink>
             </styled.div>
           </styled.div>
         </Container>
