@@ -14,6 +14,7 @@ type ButtonLinkProps = PropsWithChildren<
   ButtonLinkVariantProps &
     LinkProps & {
       icon?: string;
+      target?: HTMLAnchorElement["target"];
     }
 >;
 

@@ -1,6 +1,16 @@
-import { ButtonLink, Icon, Navbar } from "@/components";
+import {
+  Alcatel,
+  BrandDoodle,
+  ButtonLink,
+  Cisco,
+  Fortinet,
+  Icon,
+  Juniper,
+  Navbar,
+} from "@/components";
 import { links } from "@/constants";
 import { Container, VStack, styled } from "@styled-system/jsx";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -107,7 +117,7 @@ export default function Home() {
                   alignItems="center"
                   justifyContent="center"
                 >
-                  <Icon name="settings" color="green.500" size="20" />
+                  <Icon name="settings" color="green.500" size={20} />
                 </styled.div>
                 <styled.h6 fontWeight="semibold">
                   Configuration Compliance
@@ -127,7 +137,7 @@ export default function Home() {
                   alignItems="center"
                   justifyContent="center"
                 >
-                  <Icon name="server" color="green.500" size="20" />
+                  <Icon name="server" color="green.500" size={20} />
                 </styled.div>
                 <styled.h6 fontWeight="semibold">Hardware Compliance</styled.h6>
                 <styled.p color="grey.500">
@@ -145,7 +155,7 @@ export default function Home() {
                   alignItems="center"
                   justifyContent="center"
                 >
-                  <Icon name="box" color="green.500" size="20" />
+                  <Icon name="box" color="green.500" size={20} />
                 </styled.div>
                 <styled.h6 fontWeight="semibold">Software Compliance</styled.h6>
                 <styled.p color="grey.500">
@@ -170,13 +180,14 @@ export default function Home() {
             </VStack>
           </styled.div>
 
-          <styled.hr borderColor="grey.50" my={{ base: "80px", md: "100px" }} />
+          <styled.hr borderColor="grey.50" my={{ base: "80px", md: "120px" }} />
 
           <styled.div
             display="flex"
             flexDirection={{ base: "column", md: "row" }}
+            mb={{ base: "80px", md: "120px" }}
           >
-            <styled.div flex="1" mb={{ base: "80px", md: "100px" }}>
+            <styled.div flex="1" mb={{ base: "50px", md: 0 }}>
               <styled.h6 fontWeight="semibold" color="green.500" mb="3">
                 Backup & History
               </styled.h6>
@@ -205,7 +216,207 @@ export default function Home() {
                 Get started
               </ButtonLink>
             </styled.div>
+            <styled.div
+              position="relative"
+              flex={{ base: "auto", md: 1 }}
+              h={{ base: 300, md: "auto" }}
+            >
+              <Image
+                src="/images/netshot-backup.svg"
+                alt="Netshot backup & history illustration"
+                fill
+              />
+            </styled.div>
           </styled.div>
+        </Container>
+        <styled.div
+          bg="green.1100"
+          py={{ base: "80px", md: "120px" }}
+          mb={{ base: "100px", md: "120px" }}
+        >
+          <Container
+            maxW="6xl"
+            display="flex"
+            flexDirection={{ base: "column", md: "row" }}
+          >
+            <styled.div flex="1" mb={{ base: "60px", md: 0 }}>
+              <styled.h3
+                fontSize="3xl"
+                fontWeight="semibold"
+                lineHeight="110%"
+                mb="6"
+                color="white"
+              >
+                Many devices supported
+              </styled.h3>
+
+              <styled.p mb="6" color="white">
+                Netshot is compatible with the most famous network devices
+                (Cisco, Juniper, Alcatel Lucent, Fortinet, etc.) out of the box.
+              </styled.p>
+              <ButtonLink
+                icon="arrowRight"
+                href={links.devices}
+                target="_blank"
+              >
+                See supported equipment
+              </ButtonLink>
+            </styled.div>
+            <styled.div
+              display="grid"
+              gridTemplateColumns="repeat(2, 1fr)"
+              gap="5"
+              flex="1"
+            >
+              <styled.div
+                bg="rgba(236, 249, 243, 0.1)"
+                borderRadius="2xl"
+                h="160px"
+                width="100%"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Cisco />
+              </styled.div>
+              <styled.div
+                bg="rgba(236, 249, 243, 0.1)"
+                borderRadius="2xl"
+                h="160px"
+                width="100%"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Juniper />
+              </styled.div>
+              <styled.div
+                bg="rgba(236, 249, 243, 0.1)"
+                borderRadius="2xl"
+                h="160px"
+                width="100%"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Alcatel />
+              </styled.div>
+              <styled.div
+                bg="rgba(236, 249, 243, 0.1)"
+                borderRadius="2xl"
+                h="160px"
+                width="100%"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Fortinet />
+              </styled.div>
+            </styled.div>
+          </Container>
+        </styled.div>
+        <Container maxW="6xl" mb="60px">
+          <styled.div
+            display="flex"
+            flexDirection="column"
+            w={{ base: "100%", md: "calc(100%/12*6)" }}
+          >
+            <styled.h6 fontWeight="semibold" color="green.500" mb="3">
+              Additional features
+            </styled.h6>
+            <styled.h3
+              fontSize="3xl"
+              fontWeight="semibold"
+              lineHeight="110%"
+              mb="6"
+            >
+              Are you asking for more?
+            </styled.h3>
+
+            <styled.p mb="6">
+              By offering these features, Netshot enables organizations to
+              maintain control over their networks, extend functionality as
+              needed, automate change management processes, ensure robust user
+              authentication, and manage assets efficiently, all while utilizing
+              a cost-effective solution.
+            </styled.p>
+            <ButtonLink
+              icon="arrowRight"
+              href={links.documentation}
+              target="_blank"
+            >
+              Learn more about Netshot
+            </ButtonLink>
+          </styled.div>
+        </Container>
+        <styled.div>Slideshow</styled.div>
+        <Container
+          maxW="6xl"
+          p={{ base: 0 }}
+          mb={{ base: "80px", md: "120px" }}
+        >
+          <styled.div
+            w={{ base: "100%", md: "calc(100%/12*10)" }}
+            ml={{ base: 0, md: "calc(100%/12*1)" }}
+          >
+            <styled.div
+              w="100%"
+              borderRadius={{ base: 0, md: "3xl" }}
+              bg="green.1100"
+              position="relative"
+              display="flex"
+              flexDirection={{ base: "column", md: "row" }}
+              gap="6"
+              overflow="hidden"
+            >
+              <styled.div
+                display="flex"
+                flexDirection="column"
+                alignItems={{ base: "center", md: "start" }}
+                pt="80px"
+                pb={{ base: 0, md: "80px" }}
+                px={{ base: 0, md: "60px" }}
+              >
+                <styled.h2
+                  fontSize={{ base: "4xl", md: "6xl" }}
+                  fontWeight="medium"
+                  lineHeight="110%"
+                  mb="6"
+                  color="white"
+                >
+                  Orchestrate
+                  <br />
+                  made<styled.span color="green.500"> easy</styled.span>.
+                </styled.h2>
+                <styled.p
+                  mb="6"
+                  color="white"
+                  fontSize={{ base: "md", md: "lg" }}
+                  textAlign={{ base: "center", md: "start" }}
+                >
+                  Fast, free, and flexible network management solution.
+                </styled.p>
+                <ButtonLink
+                  icon="arrowRight"
+                  href={links.download}
+                  target="_blank"
+                  size="lg"
+                >
+                  Get started
+                </ButtonLink>
+              </styled.div>
+              <styled.div
+                flex={{ base: "auto", md: "1" }}
+                position="relative"
+                h="100%"
+              >
+                <BrandDoodle w="auto" h="100%" />
+              </styled.div>
+            </styled.div>
+          </styled.div>
+        </Container>
+        <Container maxW="6xl">
+          <styled.footer></styled.footer>
         </Container>
       </styled.main>
     </>

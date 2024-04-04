@@ -4,4 +4,6 @@ export const links = {
   blog: "https://www.netfishers.onl/blog",
   documentation: "https://github.com/netfishers-onl/Netshot/wiki",
   support: "https://www.netfishers.onl/service",
+  devices:
+    "https://github.com/netfishers-onl/Netshot/tree/master/src/main/resources/drivers",
 };
