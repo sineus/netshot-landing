@@ -1,8 +1,10 @@
 import {
   Alcatel,
+  Brand,
   BrandDoodle,
   ButtonLink,
   Cisco,
+  FeatureSlideshow,
   Fortinet,
   Icon,
   Juniper,
@@ -11,6 +13,7 @@ import {
 import { links } from "@/constants";
 import { Container, VStack, styled } from "@styled-system/jsx";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -349,7 +352,7 @@ export default function Home() {
             </ButtonLink>
           </styled.div>
         </Container>
-        <styled.div>Slideshow</styled.div>
+        <FeatureSlideshow />
         <Container
           maxW="6xl"
           p={{ base: 0 }}
@@ -416,7 +419,86 @@ export default function Home() {
           </styled.div>
         </Container>
         <Container maxW="6xl">
-          <styled.footer></styled.footer>
+          <styled.hr borderColor="grey.50" my={{ base: "80px", md: "120px" }} />
+          <styled.footer
+            display="flex"
+            flexDirection={{ base: "column", md: "row" }}
+            gap="4"
+            mb={{ base: "80px", md: "120px" }}
+          >
+            <styled.div w="calc(100%/12*3)" mb={{ base: "7", md: 0 }}>
+              <Brand />
+            </styled.div>
+            <styled.div
+              display="flex"
+              flexWrap="wrap"
+              flex="1"
+              rowGap={{ base: "7", md: 0 }}
+            >
+              <styled.div
+                flex={{ base: "0 0 50%", md: "1" }}
+                display="flex"
+                flexDirection="column"
+                gap="4"
+              >
+                <styled.p fontWeight="semibold">Product</styled.p>
+                <Link href="/">
+                  <styled.p color="grey.500">Features</styled.p>
+                </Link>
+                <Link href={links.download} target="_blank">
+                  <styled.p color="grey.500">Changelog</styled.p>
+                </Link>
+                <Link href={links.documentation} target="_blank">
+                  <styled.p color="grey.500">Documentation</styled.p>
+                </Link>
+                <Link href={links.download} target="_blank">
+                  <styled.p color="grey.500">Download</styled.p>
+                </Link>
+              </styled.div>
+              <styled.div
+                flex={{ base: "0 0 50%", md: "1" }}
+                display="flex"
+                flexDirection="column"
+                gap="2"
+              >
+                <styled.p fontWeight="semibold">Company</styled.p>
+                <Link href={links.support} target="_blank">
+                  <styled.p color="grey.500">About us</styled.p>
+                </Link>
+                <Link href={links.blog} target="_blank">
+                  <styled.p color="grey.500">Blog</styled.p>
+                </Link>
+              </styled.div>
+              <styled.div
+                flex={{ base: "0 0 50%", md: "1" }}
+                display="flex"
+                flexDirection="column"
+                gap="2"
+              >
+                <styled.p fontWeight="semibold">Resources</styled.p>
+                <Link href={links.support} target="_blank">
+                  <styled.p color="grey.500">Support</styled.p>
+                </Link>
+                <Link href={links.support} target="_blank">
+                  <styled.p color="grey.500">Contact</styled.p>
+                </Link>
+              </styled.div>
+              <styled.div
+                flex={{ base: "0 0 50%", md: "1" }}
+                display="flex"
+                flexDirection="column"
+                gap="2"
+              >
+                <styled.p fontWeight="semibold">Developer</styled.p>
+                <Link href={links.github} target="_blank">
+                  <styled.p color="grey.500">Github</styled.p>
+                </Link>
+                <Link href={links.github} target="_blank">
+                  <styled.p color="grey.500">README</styled.p>
+                </Link>
+              </styled.div>
+            </styled.div>
+          </styled.footer>
         </Container>
       </styled.main>
     </>

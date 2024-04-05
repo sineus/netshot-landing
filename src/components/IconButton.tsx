@@ -1,5 +1,5 @@
 import { iconButton } from "@/theme/recipes";
-import { styled } from "@styled-system/jsx";
+import { HTMLStyledProps, styled } from "@styled-system/jsx";
 import type { StyledVariantProps } from "@styled-system/types";
 import Icon from "./Icon";
 
@@ -9,7 +9,7 @@ type IconButtonVariantProps = StyledVariantProps<typeof StyledIconButton>;
 
 type IconButtonProps = IconButtonVariantProps & {
   icon: string;
-};
+} & HTMLStyledProps<"button">;
 
 export default function IconButton(props: IconButtonProps) {
   const { icon, ...other } = props;

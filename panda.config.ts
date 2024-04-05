@@ -12,6 +12,7 @@ export default defineConfig({
 
   // Files to exclude
   exclude: [],
+  importMap: "@styled-system",
 
   globalCss,
 
@@ -28,6 +29,8 @@ export default defineConfig({
       },
     },
   },
+
+  lightningcss: true,
 
   // The output directory for your css system
   outdir: "styled-system",
