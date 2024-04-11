@@ -62,8 +62,20 @@ export default function Home() {
             w="100%"
             bg="grey.100"
             borderRadius="2xl"
-            h={{ base: "300px", md: "700px" }}
-          ></styled.div>
+            position="relative"
+            overflow="hidden"
+            filter="drop-shadow(0px 8px 16px rgba(15, 46, 32, 0.08))"
+            border="1px solid token(colors.grey.100)"
+          >
+            <Image
+              src="/images/netshot-dashboard.webp"
+              alt="Netshot dashboard showcase"
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: "100%", height: "auto" }}
+            />
+          </styled.div>
         </Container>
       </styled.header>
       <styled.main>
@@ -174,12 +186,16 @@ export default function Home() {
               ml={{ md: "calc(100%/12*1)" }}
               w={{ md: "calc(100%/12*6)" }}
             >
-              <styled.div
-                w="100%"
-                bg="grey.100"
-                borderRadius="2xl"
-                h={{ base: "320px", md: "400px" }}
-              ></styled.div>
+              <styled.div w="100%" bg="grey.100" borderRadius="2xl">
+                <Image
+                  src="/images/netshot-compliance-code.webp"
+                  alt="Netshot compliance code"
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </styled.div>
             </VStack>
           </styled.div>
 
@@ -219,15 +235,14 @@ export default function Home() {
                 Get started
               </ButtonLink>
             </styled.div>
-            <styled.div
-              position="relative"
-              flex={{ base: "auto", md: 1 }}
-              h={{ base: 300, md: "auto" }}
-            >
+            <styled.div position="relative" flex={{ base: "auto", md: 1 }}>
               <Image
                 src="/images/netshot-backup.svg"
                 alt="Netshot backup & history illustration"
-                fill
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: "100%", height: "auto" }}
               />
             </styled.div>
           </styled.div>
@@ -356,7 +371,7 @@ export default function Home() {
         <Container
           maxW="6xl"
           p={{ base: 0 }}
-          mb={{ base: "80px", md: "120px" }}
+          my={{ base: "80px", md: "120px" }}
         >
           <styled.div
             w={{ base: "100%", md: "calc(100%/12*10)" }}

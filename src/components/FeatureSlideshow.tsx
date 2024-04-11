@@ -1,34 +1,39 @@
 "use client";
 
-import { styled } from "@styled-system/jsx";
+import { Container, styled } from "@styled-system/jsx";
 import { useKeenSlider } from "keen-slider/react";
 import Image from "next/image";
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { Tab, Tabs } from "./tabs";
 
 const SLIDES = [
   {
     src: "/images/netshot-feature-network-inventory.webp",
     alt: "Feature network inventory",
+    title: "Network inventory",
+    description:
+      "Netshot builds an inventory of IP and MAC addresses, serial numbers, and part numbers of hardware modules for efficient network device management and asset tracking.",
   },
   {
-    src: "/images/netshot-feature-network-inventory.webp",
-    alt: "Feature network inventory1",
+    src: "/images/netshot-feature-extensibility.webp",
+    alt: "Feature extensibility",
+    title: "Extensibility",
+    description:
+      "Support of new devices can be very easily added by writing driver script files. The REST API can be used to extend Netshot.",
   },
   {
-    src: "/images/netshot-feature-network-inventory.webp",
-    alt: "Feature network inventory2",
+    src: "/images/netshot-feature-change.webp",
+    alt: "Feature change",
+    title: "Change automation",
+    description:
+      "Push changes to your network devices using Netshot for efficient and consistent updates across your infrastructure.",
   },
   {
-    src: "/images/netshot-feature-network-inventory.webp",
-    alt: "Feature network inventory3",
-  },
-  {
-    src: "/images/netshot-feature-network-inventory.webp",
-    alt: "Feature network inventory4",
-  },
-  {
-    src: "/images/netshot-feature-network-inventory.webp",
-    alt: "Feature network inventory5",
+    src: "/images/netshot-feature-authentication.webp",
+    alt: "Feature network authentication",
+    title: "User authentication",
+    description:
+      "Netshot allows users to be authenticated locally or centrally through RADIUS, providing greater security and convenience for managing access.",
   },
 ];
 
@@ -47,6 +52,13 @@ export default function FeatureSlideshow() {
       setCurrentIndex(evt.track.details.rel);
     },
   });
+
+  const select = useCallback(
+    (index: number) => {
+      instanceRef.current?.moveToIdx(index);
+    },
+    [instanceRef]
+  );
 
   return (
     <styled.div>
@@ -77,7 +89,34 @@ export default function FeatureSlideshow() {
           </styled.div>
         ))}
       </styled.div>
-      <styled.p>{currentIndex}</styled.p>
+      <Container maxW="6xl">
+        <styled.div
+          display="flex"
+          flexDirection="column"
+          gap="12"
+          w="calc(100%/12*8)"
+          mx="auto"
+        >
+          <Tabs>
+            {SLIDES.map((slide, index) => (
+              <Tab
+                visual={currentIndex === index ? "active" : "default"}
+                onClick={() => select(index)}
+                key={slide.title}
+              >
+                <styled.p fontSize="lg" fontWeight="medium">
+                  {slide.title}
+                </styled.p>
+              </Tab>
+            ))}
+          </Tabs>
+          <styled.div>
+            <styled.p fontSize="md" color="grey.500" textAlign="center">
+              {SLIDES[currentIndex]?.description}
+            </styled.p>
+          </styled.div>
+        </styled.div>
+      </Container>
     </styled.div>
   );
 }
