@@ -6,6 +6,8 @@ export const tab = cva({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    flex: "0 0 auto",
+    width: "auto",
     cursor: "pointer",
     transition: "all .2s ease",
   },

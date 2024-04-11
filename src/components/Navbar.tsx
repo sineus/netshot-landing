@@ -136,8 +136,7 @@ export default function Navbar() {
       alignItems="center"
       justifyContent="center"
       borderBottom="1px solid token(colors.grey.50)"
-      backdropFilter="blur(20px)"
-      bg="rgba(token(colors.white) .8)"
+      bg="white"
       zIndex="9998"
     >
       <Container

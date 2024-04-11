@@ -5,7 +5,14 @@ export default function Tabs(props: PropsWithChildren) {
   const { children } = props;
 
   return (
-    <styled.div display="flex" gap="42px" position="relative" mx="auto">
+    <styled.div
+      display="flex"
+      gap="42px"
+      position="relative"
+      mx="auto"
+      overflow="auto"
+      w="100%"
+    >
       {children}
       <styled.div
         position="absolute"

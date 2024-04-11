@@ -43,10 +43,14 @@ export default function FeatureSlideshow() {
   const [sliderRef, instanceRef] = useKeenSlider({
     selector: ".slider-slide",
     loop: true,
-    slides: {
-      origin: "center",
-      perView: 3,
-      spacing: 50,
+    breakpoints: {
+      "(min-width: 500px)": {
+        slides: {
+          origin: "center",
+          perView: 3,
+          spacing: 50,
+        },
+      },
     },
     slideChanged(evt) {
       setCurrentIndex(evt.track.details.rel);
@@ -67,24 +71,30 @@ export default function FeatureSlideshow() {
           <styled.div
             className="slider-slide"
             bg="grey.100"
-            rounded="3xl"
+            rounded={{ base: "0", md: "3xl" }}
             display="flex"
             alignItems="center"
             justifyContent="center"
             key={slide.alt}
-            h="500px"
+            h={{ base: "300px", md: "500px" }}
           >
             <styled.div
               w="100%"
-              h="100%"
+              h="auto"
               rounded="xl"
               boxShadow="0 4px 8px 0 rgba(tokens(colors.grey.200), 0.4)"
               maxW="80%"
-              maxH="80%"
               position="relative"
               overflow="hidden"
             >
-              <Image src={slide.src} alt={slide.alt} fill />
+              <Image
+                src={slide.src}
+                alt={slide.alt}
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: "100%", height: "auto" }}
+              />
             </styled.div>
           </styled.div>
         ))}
@@ -94,7 +104,7 @@ export default function FeatureSlideshow() {
           display="flex"
           flexDirection="column"
           gap="12"
-          w="calc(100%/12*8)"
+          w={{ base: "100%", md: "calc(100%/12*8)" }}
           mx="auto"
         >
           <Tabs>
