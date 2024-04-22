@@ -1,6 +1,6 @@
 import { button } from "@/theme/recipes";
 import { styled } from "@styled-system/jsx";
-import type { StyledVariantProps } from "@styled-system/types";
+import type { HTMLStyledProps, StyledVariantProps } from "@styled-system/types";
 import { PropsWithChildren } from "react";
 
 import Link, { LinkProps } from "next/link";
@@ -12,6 +12,7 @@ type ButtonLinkVariantProps = StyledVariantProps<typeof StyledButtonLink>;
 
 type ButtonLinkProps = PropsWithChildren<
   ButtonLinkVariantProps &
+    HTMLStyledProps<"a"> &
     LinkProps & {
       icon?: string;
       target?: HTMLAnchorElement["target"];

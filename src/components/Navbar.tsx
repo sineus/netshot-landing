@@ -88,7 +88,7 @@ function MenuBottomSheet() {
                   pb="5"
                 >
                   <styled.nav>
-                    <BottomSheetNavLink href="/#features">
+                    <BottomSheetNavLink href={links.features} onClick={toggle}>
                       Features
                     </BottomSheetNavLink>
                     <BottomSheetNavLink
@@ -109,11 +109,12 @@ function MenuBottomSheet() {
                       visual="ghost"
                       href={links.github}
                       target="_blank"
+                      w="100%"
                     >
                       Source code
                     </ButtonLink>
 
-                    <ButtonLink href={links.download} target="_blank">
+                    <ButtonLink href={links.download} target="_blank" w="100%">
                       Download
                     </ButtonLink>
                   </styled.div>
@@ -162,7 +163,7 @@ export default function Navbar() {
             <Brand />
           </Link>
           <HStack gap="2" display={{ base: "none", md: "flex" }}>
-            <NavLink href="/#features">Features</NavLink>
+            <NavLink href={links.features}>Features</NavLink>
             <NavLink href={links.documentation} target="_blank">
               Documentation
             </NavLink>

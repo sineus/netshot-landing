@@ -24,7 +24,12 @@ export const StyledLink = styled(Link, {
 });
 
 type NavLinkVariantProps = StyledVariantProps<typeof StyledLink>;
-type NavLinkProps = PropsWithChildren<NavLinkVariantProps & LinkProps>;
+type NavLinkProps = PropsWithChildren<
+  NavLinkVariantProps &
+    LinkProps & {
+      target?: HTMLAnchorElement["target"];
+    }
+>;
 
 export default function NavLink(props: NavLinkProps) {
   const { children, ...other } = props;

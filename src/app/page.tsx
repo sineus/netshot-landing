@@ -463,7 +463,7 @@ export default function Home() {
                 gap="4"
               >
                 <styled.p fontWeight="semibold">Product</styled.p>
-                <Link href="/">
+                <Link href={links.features}>
                   <styled.p color="grey.500">Features</styled.p>
                 </Link>
                 <Link href={links.download} target="_blank">

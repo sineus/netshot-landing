@@ -1,4 +1,5 @@
 export const links = {
+  features: "/#features",
   download: "https://github.com/netfishers-onl/Netshot/releases",
   github: "https://github.com/netfishers-onl/Netshot",
   blog: "https://www.netfishers.onl/blog",
