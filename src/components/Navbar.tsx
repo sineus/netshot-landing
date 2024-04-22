@@ -5,7 +5,7 @@ import { links } from "@/constants";
 import { Container, HStack, styled } from "@styled-system/jsx";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const StyledMotionDiv = styled(motion.div);
 const BottomSheetNavLink = styled(Link, {
@@ -88,7 +88,9 @@ function MenuBottomSheet() {
                   pb="5"
                 >
                   <styled.nav>
-                    <BottomSheetNavLink href="/">Features</BottomSheetNavLink>
+                    <BottomSheetNavLink href="/#features">
+                      Features
+                    </BottomSheetNavLink>
                     <BottomSheetNavLink
                       href={links.documentation}
                       target="_blank"
@@ -126,6 +128,15 @@ function MenuBottomSheet() {
 }
 
 export default function Navbar() {
+  useEffect(() => {
+    if (window.location.hash) {
+      const element = document.querySelector(window.location.hash);
+      if (element) {
+        element.scrollIntoView({ block: "start", behavior: "smooth" });
+      }
+    }
+  }, []);
+
   return (
     <styled.nav
       width="100%"
@@ -151,7 +162,7 @@ export default function Navbar() {
             <Brand />
           </Link>
           <HStack gap="2" display={{ base: "none", md: "flex" }}>
-            <NavLink href="/">Features</NavLink>
+            <NavLink href="/#features">Features</NavLink>
             <NavLink href={links.documentation} target="_blank">
               Documentation
             </NavLink>

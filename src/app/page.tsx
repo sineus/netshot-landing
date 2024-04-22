@@ -78,7 +78,13 @@ export default function Home() {
           </styled.div>
         </Container>
       </styled.header>
-      <styled.main>
+      <styled.main position="relative">
+        <styled.div
+          id="features"
+          position="absolute"
+          top="-100px"
+          left="0"
+        ></styled.div>
         <Container maxW="6xl">
           <styled.div w={{ md: "70%" }} mb={{ base: "80px", md: "100px" }}>
             <styled.h6 fontWeight="semibold" color="green.500" mb="3">

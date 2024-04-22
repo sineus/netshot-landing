@@ -4,6 +4,7 @@ export const globalCss = defineGlobalStyles({
   "html, body": {
     "-webkit-font-smoothing": "antialiased",
     "-moz-osx-font-smoothing": "grayscale",
+    scrollBehavior: "smooth",
   },
   ".slider": {
     alignContent: "flex-start",
